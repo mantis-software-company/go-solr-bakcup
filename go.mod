@@ -3,6 +3,7 @@ module github.com/mantis-software-company/go-solr-backup
 go 1.16
 
 require (
+	github.com/jedib0t/go-pretty/v6 v6.3.1
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.18.1
 	github.com/spf13/cobra v1.4.0

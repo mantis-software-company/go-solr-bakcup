@@ -64,5 +64,17 @@ var _ = Describe("Backup Methods Tests", func() {
 			})
 		})
 
+		Describe("Test list backup", func() {
+			It("BackupList should be succeed", func() {
+				err := BackupList(config, 0)
+				Expect(err).To(BeNil(), "BackupList returns error")
+			})
+
+			It("BackupListAll should be succeed", func() {
+				err := BackupListAll(config, 0)
+				Expect(err).To(BeNil(), "BackupList returns error")
+			})
+		})
+
 	})
 })
