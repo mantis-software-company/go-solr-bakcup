@@ -58,7 +58,7 @@ var _ = Describe("Backup Methods Tests", func() {
 		})
 
 		Describe("Test backup all together", func() {
-			It("Backup should be succeed", func() {
+			It("BackupAll should be succeed", func() {
 				err := BackupAll(config)
 				Expect(err).To(BeNil(), "BackupAll returns error")
 			})
