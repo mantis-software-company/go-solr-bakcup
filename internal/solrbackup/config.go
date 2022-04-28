@@ -14,7 +14,8 @@ limitations under the License.
 package solrbackup
 
 type Config struct {
-	SolrEndpoint string
-	Location     string
-	Collections  []string
+	SolrEndpoint   string
+	Location       string
+	Collections    []string
+	RetaintionDays int
 }

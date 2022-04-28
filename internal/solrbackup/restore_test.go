@@ -26,6 +26,7 @@ var _ = Describe("Restore Methods Tests", func() {
 		config.SolrEndpoint = "http://solr.solr-backup-test.svc.cluster.mantam:8983"
 		config.Collections = []string{"test", "test1"}
 		config.Location = "/"
+		config.RetaintionDays = 5
 
 		reqId := time.Now().UnixMilli()
 

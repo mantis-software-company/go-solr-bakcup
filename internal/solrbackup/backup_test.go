@@ -26,6 +26,7 @@ var _ = Describe("Backup Methods Tests", func() {
 		config.SolrEndpoint = "http://solr.solr-backup-test.svc.cluster.mantam:8983"
 		config.Collections = []string{"test", "test1"}
 		config.Location = "/"
+		config.RetaintionDays = 1
 
 		reqId := time.Now().UnixMilli()
 
@@ -71,8 +72,20 @@ var _ = Describe("Backup Methods Tests", func() {
 			})
 
 			It("BackupListAll should be succeed", func() {
-				err := BackupListAll(config, 0)
-				Expect(err).To(BeNil(), "BackupList returns error")
+				err := BackupListAll(config)
+				Expect(err).To(BeNil(), "BackupListAll returns error")
+			})
+		})
+
+		Describe("Test delete backup", func() {
+			It("BackupDelete should be succeed", func() {
+				err := BackupDelete(config, 0)
+				Expect(err).To(BeNil(), "BackupDelete returns error")
+			})
+
+			It("BackupDeleteAll should be succeed", func() {
+				err := BackupDeleteAll(config)
+				Expect(err).To(BeNil(), "BackupDeleteAll returns error")
 			})
 		})
 
