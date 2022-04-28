@@ -70,16 +70,15 @@ func BackupList(config Config, colId int64) error {
 
 	t := prettytable.NewWriter()
 	t.SetOutputMirror(os.Stdout)
-	t.AppendHeader(prettytable.Row{"#", "Config Name", "Alias", "Backup Time"})
+	t.AppendHeader(prettytable.Row{"#", "Collection", "Config Name", "Alias", "Backup Time"})
 
-	for i := 0; i < len(backupIds); i++ {
+	for _, i := range backupIds {
 		backup := backupList[i]
 
-		t.AppendRow(prettytable.Row{backup["backupId"], backup["collection.configName"], backup["collectionAlias"], backup["startTime"]})
+		t.AppendRow(prettytable.Row{backup["backupId"], col, backup["collection.configName"], backup["collectionAlias"], backup["startTime"]})
 
 	}
 
-	fmt.Sprintf("Backup List of %v", col)
 	t.Render()
 
 	return nil
