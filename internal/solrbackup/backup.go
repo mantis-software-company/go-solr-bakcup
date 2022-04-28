@@ -99,7 +99,7 @@ func StartBackup(config Config, colId, reqId int64) error {
 
 	col := config.Collections[colId]
 
-	backup_uri := fmt.Sprintf("%s%s?action=BACKUP&async=sb-%d&collection=%s&name=%s&location=%s", config.SolrEndpoint, collection_api, reqId, col, col, config.Location)
+	backup_uri := fmt.Sprintf("%s%s?action=BACKUP&async=sb-%d&collection=%s&name=%s&location=%s&incremental=true", config.SolrEndpoint, collection_api, reqId, col, col, config.Location)
 	klog.V(5).Infof("backup uri: %v", backup_uri)
 
 	resp, err := sendRequest(backup_uri)
